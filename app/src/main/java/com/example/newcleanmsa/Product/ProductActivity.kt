@@ -1,12 +1,12 @@
-package com.example.newcleanmsa.login
+package com.example.newcleanmsa.Product
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.newcleanmsa.R
 
-class LoginActivity : AppCompatActivity() {
+class ProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_product)
     }
 }

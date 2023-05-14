@@ -1,4 +1,4 @@
-package com.example.data.module
+package com.example.data.common
 
 import dagger.Module
 import dagger.Provides
@@ -13,14 +13,14 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
+    const val API_BASE_URL = "https://fakestoreapi.com/"
     @Singleton
     @Provides
     fun provideRetrofit(okHttp: OkHttpClient) : Retrofit {
         return Retrofit.Builder().apply {
             addConverterFactory(GsonConverterFactory.create())
             client(okHttp)
-            baseUrl(BuildConfig.API_BASE_URL)
+            baseUrl(API_BASE_URL)
         }.build()
     }
 
