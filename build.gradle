@@ -17,6 +17,7 @@ buildscript {
 
     ext.room_version = "2.5.0"
 
+    ext.nav_version = "2.5.3"
     repositories {
         google()
         mavenCentral()
