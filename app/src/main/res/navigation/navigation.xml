@@ -1,16 +1,19 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<navigation xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/navigation"-->
-<!--    app:startDestination="@layout/activity_product">-->
-<!--    <activity-->
-<!--        android:id="@+id/homeFragment"-->
-<!--        android:name="com.example.newcleanmsa.Product.ProductActivity"-->
-<!--        android:label="homeee"-->
-<!--        tools:layout="@layout/activity_product"-->
-<!--        >-->
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
 
-<!--    </activity>-->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.newcleanmsa.Product.ProductFragment"
+        android:label="homeee"
+        tools:layout="@layout/fragment_product"
+        >
 
-<!--</navigation>-->
+    </fragment>
+
+</navigation>
+
+
