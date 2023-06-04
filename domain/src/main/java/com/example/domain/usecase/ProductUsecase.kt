@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class ProductUsecase @Inject constructor(private val productRepository: IProductRepository) {
 
-  suspend fun execute(): Flow<BaseResult<ProductEntity, ProductResponse>> {
+  suspend fun execute(): Flow<BaseResult<List<ProductEntity>, List<ProductResponse>>> {
          return productRepository.getProduct();
     }
 }

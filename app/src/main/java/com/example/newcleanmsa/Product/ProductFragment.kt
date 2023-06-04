@@ -10,9 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.domain.entity.ProductEntity
 import com.example.newcleanmsa.R
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_product.*
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -20,7 +22,7 @@ import kotlinx.coroutines.flow.onEach
 class ProductFragment : Fragment() {
 
    private val productViewModel : ProductViewModel by viewModels()
-
+    private lateinit var productAdapter: ProductAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_product)
@@ -37,7 +39,14 @@ class ProductFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        productAdapter= ProductAdapter(this.requireContext(),{ i->
+            print(i)
+        })
+        with(recyclerview) {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            setHasFixedSize(true)
+            adapter = productAdapter
+        }
         productViewModel.getProduct()
     }
     private fun observe(){
@@ -57,8 +66,9 @@ class ProductFragment : Fragment() {
         }
     }
 
-    fun handleSuccessLogin( productEntity: ProductEntity){
-val t=1;
+   private fun handleSuccessLogin( productEntity: List<ProductEntity>){
+
+       productAdapter.setData(productEntity)
     }
 
 }

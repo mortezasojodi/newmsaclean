@@ -6,5 +6,5 @@ import com.example.domain.response.ProductResponse
 import kotlinx.coroutines.flow.Flow
 
 interface IProductRepository {
-     suspend fun getProduct(): Flow<BaseResult<ProductEntity, ProductResponse>>
+     suspend fun getProduct(): Flow<BaseResult<List<ProductEntity>, List<ProductResponse>>>
 }

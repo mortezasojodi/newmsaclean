@@ -10,13 +10,28 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class ProductRepositoryImp @Inject constructor(private val productApi: ProductApi) : IProductRepository {
-    override suspend fun getProduct(): Flow<BaseResult<ProductEntity, ProductResponse>> {
+    override suspend fun getProduct(): Flow<BaseResult<List<ProductEntity>, List<ProductResponse>>> {
         return flow {
             val response = productApi.getProduct()
             if(response.isSuccessful){
-                val body = response.body()!!
-//                val loginEntity = LoginEntity(body.data?.id!!, body.data?.name!!, body.data?.email!!, body.data?.token!!)
-//                emit(BaseResult.Success(loginEntity))
+                val listbody = response.body()!!
+                 val loginEntity= ArrayList<ProductEntity>()
+
+                for ( body in listbody) {
+
+                    val t = ProductEntity(
+                        body?.id!!,
+                        body?.title!!,
+                        body?.price!!,
+                        body?.category!!,
+                        body?.description!!,
+                        body?.image!!
+                    )
+//                    val myArrayList = ArrayList<String>()
+//                    myArrayList.add("Tom Hanks")
+                    loginEntity.add(t)
+                }
+                emit(BaseResult.Success(loginEntity))
             } else{
 //                val type = object : TypeToken<WrappedResponse<LoginResponse>>(){}.type
 //                val err : WrappedResponse<LoginResponse> = Gson().fromJson(response.errorBody()!!.charStream(), type)

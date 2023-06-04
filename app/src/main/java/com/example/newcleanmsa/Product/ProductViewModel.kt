@@ -57,6 +57,6 @@ sealed class ProductActivityState  {
     object Init : ProductActivityState()
     data class IsLoading(val isLoading: Boolean) : ProductActivityState()
     data class ShowToast(val message: String) : ProductActivityState()
-    data class SuccessGet(val productEntity: ProductEntity) : ProductActivityState()
-    data class ErrorGet(val rawResponse: ProductResponse) : ProductActivityState()
+    data class SuccessGet(val productEntity: List<ProductEntity>) : ProductActivityState()
+    data class ErrorGet(val rawResponse: List<ProductResponse>) : ProductActivityState()
 }
