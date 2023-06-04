@@ -25,6 +25,5 @@ class ProductModule {
     @Provides
     fun provideLoginRepository(loginApi: ProductApi) : IProductRepository {
         return ProductRepositoryImp(loginApi)
-
     }
 }
