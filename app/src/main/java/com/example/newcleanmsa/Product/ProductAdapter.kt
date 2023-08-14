@@ -1,6 +1,7 @@
 package com.example.newcleanmsa.Product
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +32,7 @@ class ProductAdapter (private val context: Context, val showDetail: (ProductEnti
         return listData.size;
     }
 
-    fun  setData( newListData:List<ProductEntity>?){
+    fun setData(newListData:List<ProductEntity>?){
         if (newListData == null) return
         listData.clear()
         listData.addAll(newListData)
@@ -42,8 +43,13 @@ class ProductAdapter (private val context: Context, val showDetail: (ProductEnti
         RecyclerView.ViewHolder(itemView) {
         fun setData( hobbi:ProductEntity?, pos: Int){
             hobbi?.let {
-
                 itemView.txvTitle.text = hobbi.title
+                itemView.imgShare.setImageURI(Uri.parse(hobbi.image))
+
+                itemView.setOnClickListener({
+                    showDetail(hobbi)
+                })
+
             }
         }
         }

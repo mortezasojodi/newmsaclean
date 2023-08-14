@@ -6,7 +6,6 @@ import com.example.domain.common.base.BaseResult
 import com.example.domain.entity.ProductEntity
 import com.example.domain.response.ProductResponse
 import com.example.domain.usecase.ProductUsecase
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

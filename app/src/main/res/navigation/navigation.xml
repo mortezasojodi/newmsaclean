@@ -11,9 +11,18 @@
         android:label="homeee"
         tools:layout="@layout/fragment_product"
         >
-
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/homeFragmentDetail" />
     </fragment>
 
+    <fragment
+        android:id="@+id/homeFragmentDetail"
+        android:name="com.example.newcleanmsa.Product_Detail.ProductDetail"
+        android:label="detailProduct"
+        tools:layout="@layout/fragment_product_detali"
+        >
+    </fragment>
 </navigation>
 
 

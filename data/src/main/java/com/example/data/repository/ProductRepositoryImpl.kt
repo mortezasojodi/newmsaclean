@@ -20,12 +20,12 @@ class ProductRepositoryImp @Inject constructor(private val productApi: ProductAp
                 for ( body in listbody) {
 
                     val t = ProductEntity(
-                        body?.id!!,
-                        body?.title!!,
-                        body?.price!!,
-                        body?.category!!,
-                        body?.description!!,
-                        body?.image!!
+                        body.id,
+                        body.title,
+                        body.price,
+                        body.category,
+                        body.description,
+                        body.image
                     )
 //                    val myArrayList = ArrayList<String>()
 //                    myArrayList.add("Tom Hanks")
